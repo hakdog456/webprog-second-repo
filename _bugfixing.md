@@ -19,7 +19,7 @@
 # 🐞 List of Bugs
 
 - I think ignore na mga footer problem if meron man, di man ganun ka noticeable may just be with my pc (ata) - mennard
-- https://youtu.be/0U6URtLGYkM <- video link of the following errors (tried to go one by one)
+- https://youtu.be/0U6URtgitLGYkM <- video link of the following errors (tried to go one by one)
 
 ---
 
