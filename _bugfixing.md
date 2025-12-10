@@ -61,8 +61,10 @@ user-application-page.html
 
 user-profile.html (admin controls)
 - NO EXIT BUTTON WHEN TRYING TO ADD A DOG, SO ITS STUCK THERE (I think this is the one causing the placeholder dogs adding loop)
+  - ^ Dustin POV About this = for me it does not add a pet, after adding, when refreshed, it is gone
 - When clicking the add button to an empty add dog function, it automatically says pending even though no user added it?
 -- https://youtu.be/0U6URtLGYkM?t=411 (both above)
+  - ^ Dustin = I suggest to not use this function the "ADM" button
 
 user-application-page.html : admin 3 
 - When setting a meet and greet time for admins, it says use 24 hour format below yet nakalagay automatically nag 01:00 PM when I put 13:00
