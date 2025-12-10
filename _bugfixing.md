@@ -111,3 +111,4 @@ dataoverview.html
 General
 - clicking search button in header does nothing
 - button of user profile functionality to other pages
+- WALA PA TAYONG PROPER ADD AND EDIT PETS

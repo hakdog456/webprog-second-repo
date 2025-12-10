@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.querySelector('.pet-items').innerHTML = '<p style="text-align:center; padding:20px; color:red;">Error loading pets.</p>';
 		});
 
-	function getUserId() {
+	function getUserId() {	
 		console.log('==== getUserId ====');
 		let username = localStorage.getItem('username');
 		let userId = localStorage.getItem('userId');
