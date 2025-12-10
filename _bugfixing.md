@@ -12,6 +12,7 @@
 - in user, after submitting application, i suggest for the view to revert to dashboard (it still goes back to user application kase eh) - FIXED!
 - from the user, when meet and greet is clicked, it should go to meet and greet (it still goes back to user application kase eh)
 - contact.html: nothing happens when send message is clicked : tiny gap below footer on 768px - 1024px -- minnardfix
+- faqs.html: big gap below footer after 768px, disappears when you expand one of the details, footer background disappearing when <600px - 768px -- minnardfix
 
 
 ---
@@ -23,6 +24,7 @@
 
 ---
 
+WORKING ON ALL TINY GAP BELOW FOOTERS - MENNARD
 login.php & sign-up.php 
 - tiny gap below footer on 1024px 
 - https://youtu.be/0U6URtLGYkM?t=54
@@ -82,12 +84,6 @@ user-application-page.html : admin any
 - I had to relogin to fix the mentioned above
 -- https://youtu.be/0U6URtLGYkM?t=591
 
-
-
-faqs.html
-- big gap below footer after 768px, disappears when you expand one of the faqs 
-- footer background disappearing when <600px - 768px
--- https://youtu.be/0U6URtLGYkM?t=716
 
 user-profile.html
 - footer not on the bottom 
