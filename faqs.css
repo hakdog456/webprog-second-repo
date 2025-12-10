@@ -1,8 +1,9 @@
-
 /* CSS RESET */
 
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -26,18 +27,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -45,46 +59,47 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
-
 /* VARIABLES */
-:root{
+:root {
   --fontColor: #223125;
   --fontColor2: #725134;
-  --fontColor3: #444E27;
-  --bgColor: #DEDCCA;
+  --fontColor3: #444e27;
+  --bgColor: #dedcca;
 }
-
 
 /* MAIN STARTING STYLING */
 /* PAGE STYLING */
-body{
-    position: relative;
-    background: var(--bgColor);
-    color: var(--fontColor);
-    font-family: "Chakra Petch";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* border: 2px solid violet; */
-    overflow-x: hidden;
-    
-    
-    /* Temporary bottom padding */
-    padding-bottom: 300px;
+body {
+  position: relative;
+  background: var(--bgColor);
+  color: var(--fontColor);
+  font-family: "Chakra Petch";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid violet; */
+  overflow-x: hidden;
 
+  /* Temporary bottom padding 
+    padding-bottom: 300px;*/
 }
-
 
 /* -------------------- FONTS -------------------- */
 .slackey-regular {
@@ -105,8 +120,11 @@ body{
   box-sizing: border-box;
 }
 
-html, body {
-  /* height: 100%; */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* BASE */
@@ -117,14 +135,14 @@ body {
   font-family: "Chakra Petch", sans-serif;
 }
 
-
 /* ------------- MAIN / FAQ SECTION ------------- */
 main {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
+  min-height: 0;
 }
 
 .faq-container {
@@ -149,9 +167,10 @@ main {
   width: 100%;
   height: 100%;
   max-height: 400px;
+  max-width: 900px;
   object-fit: cover;
   opacity: 0.9;
-  border-radius: 20px;
+  border-radius: 30px;
   mix-blend-mode: overlay;
 }
 
@@ -161,10 +180,12 @@ main {
   padding: 60px;
   border-radius: 55px;
   border: 1px solid #2f4a26;
-  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   mix-blend-mode: multiply;
   font-family: "Chakra Petch", sans-serif;
-
+  max-height: 900px; /* never taller than this */
+  max-width: 600px;
+  overflow-y: auto;  /* scroll content if needed */
 }
 
 .faq-box h2 {
@@ -178,10 +199,10 @@ main {
 details {
   color: #444e27;
   border: 1px solid #2f4a26;
-  border-radius: 45px;
-  padding: 20px 10px;
+  border-radius: 25px;
+  padding: 10px 10px;
   mix-blend-mode: multiply;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -204,33 +225,42 @@ details[open] summary::after {
   transform: rotate(180deg);
 }
 
-
-
 /* ------------- TABLET VIEW ------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* Blend FAQ + Cat */
   .faq-container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
+    min-height: 400px; /* Ensure container tall enough for image */
   }
+
   .faq-box {
     position: relative;
-    z-index: 1;
-    width: 90%;  
+    z-index: 2; /* On top of cat image */
+    flex: 1.5;
+    background-color: rgba(244, 241, 207, 0.9);
+    padding: 60px;
+    border-radius: 55px;
+    border: 1px solid #2f4a26;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     mix-blend-mode: multiply;
+    font-family: "Chakra Petch", sans-serif;
+    max-height: 825px;
+    max-width: 600px;
   }
 
   .faq-image {
     position: absolute;
-    right: 25;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
     opacity: 0.7;
     mix-blend-mode: overlay;
+    pointer-events: none; /* Optional: prevent image from blocking interactions */
   }
 
   .faq-image img {
@@ -238,59 +268,88 @@ details[open] summary::after {
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-
   }
 }
 
-
-/* --- MOBILE VIEW --- */
+/* --- MOBILE VIEW: CAT BELOW FAQ BOX --- */
 @media (max-width: 768px) {
-  /* FAQ layout */
-  .faq-section{
-    background-image: none;
-    padding-bottom: 0;
-  }
   .faq-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    position: relative; /* parent for absolute image */
+    min-height: 400px; /* ensures footer isn't pushed by small container */
+  }
+
+  /*
+  .faq-image {
+    position: absolute;       /* remove from flow 
+    bottom: 0;                /* stick to bottom of container 
+    left: 50%;                /* center horizontally 
+    transform: translateX(-50%);
+    width: 90%;               /* optional 
+    max-height: 50vh;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;     /* don't block interactions 
+  }
+  
+
+  .faq-box {
+    position: relative;       /* stay on top
+    z-index: 2;
+    margin-bottom: 0;         /* remove extra gap 
+  }
+  */
+
+  .faq-image {
+    display: none;
   }
 
   .faq-box {
-    order: 1;
     width: 100%;
-    padding: 25px 20px;
     border-radius: 35px;
-    background-color: rgba(244, 241, 207, 0.95);
-    margin-bottom: -20px;
-    z-index: 2;
-    position: relative;
+    margin-bottom: 20px; /* optional spacing from footer */
+    min-height: 400px;
+    max-height: 750px;
+    max-width: 500px;
+    overflow-y: auto;
+    padding: 20px;
   }
 
-  .faq-image {
-    order: 2;
-    width: 100%;
-    text-align: center;
-    opacity: 0.7;
-    margin: 0;
-  }
 
   .faq-image img {
-    margin-top: 50px;
-    width: 125%;
-    height: 50vh;
-    border-radius: 25px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    mix-blend-mode: multiply;
-    opacity: 0.5;
-    filter: brightness(1);
-    
+    border-radius: 25px;
   }
-  body, html {
-    background: url("fabric_background.png");
+}
+
+/* FIXED FAQ FOOTER GAP */
+@media only screen and (max-width: 1188px) and (min-width: 930px) {
+  body {
+    min-height: 100vh;
+  }
+  .HomeFooter {
+    margin-top: 40px;          
   }
 
+  .footerBg {
+    height: auto;
+    min-height: 240px;
+  }
+} 
+
+/* Footer fix for all screens below 930px */
+@media only screen and (max-width: 930px) {
+  body {
+    min-height: 100vh;
+  }
+
+  .HomeFooter {
+    margin-top: 40px;
+  }
+
+  .footerBg {
+    height: auto;
+    min-height: 240px;
+  }
 }
