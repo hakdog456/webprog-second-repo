@@ -1,0 +1,1278 @@
+
+/* CSS RESET */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+/* VARIABLES */
+:root{
+  --fontColor: #223125;
+  --fontColor2: #725134;
+  --fontColor3: #444E27;
+  --bgColor: #DEDCCA;
+}
+
+
+
+/* MAIN STARTING STYLING */
+/* PAGE STYLING */
+body{
+    position: relative;
+    background: var(--bgColor);
+    color: var(--fontColor);
+    font-family: "Chakra Petch";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid violet; */
+    overflow-x: hidden;
+    
+    /* Temporary bottom padding */
+    padding-bottom: 300px;
+
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* NAV STYLING */
+
+/* turning off mobile elements */
+.burgerMenuCon{
+    display: none;
+}
+
+.navMobileSlide{
+  display: none;
+  top: 0;
+  padding-top: 85px;
+    /* padding-bottom: 5%; */
+    position: absolute;
+    /* height: 500px; */
+    /* background-image: url("images/homeImages/nav\ slider\ bg.webp"); */
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    border-radius: 20px;
+    color: #223125;
+    box-shadow: 4px 1px 10px black;
+    z-index: 5;
+}
+
+
+.nav{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  height: 81px;
+  font-family: "Chakra Petch";
+  color: var(--fontColor); 
+  font-size: 20px;
+  border-radius: 0px 0px 65px 65px;
+  width: 80%;
+  background: var(--bgColor);
+  z-index: 4;
+}
+
+.navLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.mainNav{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4%;
+  width: 100%;
+  /* border: 2px solid pink; */
+  height: 100%;
+}
+
+.navControls{
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  justify-content: flex-end;
+  padding-right: 20%;
+}
+
+.nav p{
+  transition: .2s;
+  cursor: pointer;
+}
+
+.nav p:hover{
+  transform: scale(1.3);
+}
+
+
+
+
+/* MAIN SECTION STYLING */
+/* HOME INTRO */
+.homeIntroImgBg{
+  position: absolute;
+  flex-shrink: 0;
+  z-index: -1;
+  background-image: url("images/homeImages/Mask group.webp");
+  height: 1100px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: center center;
+}
+.homeIntro{
+  position: relative;
+  display: flex;
+  /* border: 1px solid pink; */
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column; 
+  height: 100%;
+  
+}
+
+.homeIntroLogo{
+  margin-top: 2%;
+  padding-top: 81px;
+  width: 190px;
+}
+
+.mainContent{
+  position: relative;
+  display: flex;
+  /* border: 1px solid pink; */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;  
+}
+
+.blurryBranchCon{
+  height: 30vw;
+  overflow: visible;
+}
+
+
+
+.homeIntro h1{
+  margin-top: 1%;
+  line-height: .83;
+  color: var(--bgColor);
+  font-family: "Slackey";
+  font-size: 128px;
+  text-shadow: 0px 4px 4px #07080D;
+}
+
+.homeIntro h2{
+  margin-top: 1%;
+  color: #FFD900;
+  font-family: "Slackey";
+  font-size: 36px;
+  text-shadow: 0px 4px 4px #07080D;
+}
+
+.startYoursBtn{
+  display: flex;
+  background: #13160bb1;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 50px 10px 50px;
+  border: 1.5px solid #CCCBB9;
+  border-radius: 100px;
+  font-size: 24px;
+  font-family: "Chakra Petch";
+  font-weight: 600;
+  color: #CCCBB9;
+  margin-top: 1%;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.startYoursBtn:hover{
+  background: white;
+  color: #050607;
+}
+
+.startYoursBtn:active{
+  transition: 0s;
+  background: #000;
+  color: white;
+}
+
+
+
+
+
+
+
+/* OUR PETS */
+.blurryBranchImg{
+  /* position: absolute; */
+  /* border: 1px solid black; */
+}
+
+.ourPets{
+  display: flex;
+  /* border: 1px solid pink; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.ourPetsHeading{
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  /* border: 1px solid green; */
+  justify-content: center;
+  align-items: center;
+}
+
+.ourPetsTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ourPetsTitle h2{
+  font-weight: 1000;
+  /* margin-left: 17%; */
+}
+
+.ourPetsViewMoreAnimalsBtn{
+  grid-column: 3;
+  font-size: 20px;
+}
+
+.ourPetsHeading div{
+  width: 100%;
+}
+
+.ourPetsContent{
+  position: relative;
+  /* border: 1px solid red; */
+  display: grid;
+  grid-template-columns: .5fr 4fr .5fr;
+  /* align-items: center; */
+  justify-content: center;
+  /* gap: 2%; */
+  /* overflow-x: auto; */
+  width: 100%;
+  height: 550px;
+}
+
+.carouselCon{
+  /* border: solid 2px violet; */
+  position: relative;
+  perspective: 1300px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: max-content; */
+  height: 100%;
+}
+
+.petPic{
+  position: absolute;
+  width: 40%;
+  /* height: 526px; */
+  /* border: .5px solid var(--bgColor); */
+  border-radius: 40px;
+  /* background:lightcoral; */
+  /* transform: rotateY(30deg); */
+  flex-shrink: 0;
+  overflow:hidden;
+  transition: all 0.5s ease;
+}
+
+
+/* Carousel Positions */
+.left {
+  transform: rotateY(60deg) scale(.5) translateX(-1000px);
+  opacity: .7;
+  filter: blur(5px);
+  z-index: 0;
+}
+.center {
+  transform: rotateY(0deg) scale(1);
+  opacity: 1;
+  filter: blur(0);
+  z-index: 2;
+  box-shadow: 0px 4px 40px black;
+}
+
+.center:hover{
+  scale: 1.2;
+}
+
+.right {
+  transform: rotateY(-60deg) scale(.5) translateX(1000px);
+  opacity: .7;
+  filter: blur(5px);
+  z-index: 0;
+}
+.hidden {
+  opacity: 0;
+  transform: scale(.5); 
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.petPic img{
+  width: 100%;
+}
+
+.ourPetsContent button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* color: white; */
+  font-size: 40px;
+  margin-bottom: 20%;
+}
+
+.ourPetsContent .btnCon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* border:solid 2px green;  */
+  z-index: 2;
+}
+
+.btnCon button{
+  color: var(--fontColor);
+}
+
+
+
+
+
+
+/* HOME INFORMATION SECTION */
+.homeInformation{
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
+  /* testing height */
+  /* height: 500px;  */
+}
+
+.ourStory, .ourMission{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* border: 1px solid red; */
+  width: 100%;
+}
+
+.ourStoryimageHolder, .ourMissionImageHolder{
+  position: relative;
+  /* border: 1px solid blue; */
+  display: flex;
+}
+
+.sideBranchImg{
+  margin-top: -100px;
+  position: absolute;
+  /* border: 1px solid red; */
+  align-self: flex-start;
+  z-index: -1;
+}
+
+.ourStoryDogsImg{
+  position: absolute;
+  align-self: center;
+  mix-blend-mode: hard-light;
+  z-index: -2;
+}
+
+.catImg{
+  position: absolute;
+  align-self: center;
+  mix-blend-mode: hard-light;
+  z-index: -2;
+  margin-bottom: -200px;
+}
+
+.rightBranchImg{
+  position: absolute;
+  align-self: center;
+  right: -20px;
+  margin-bottom: -600px;
+}
+
+.ourStorycontentHolder, .ourMissionContentHolder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1%;
+  font-size: 24px;
+  font-family: "Chakra Petch";
+  font-weight: 600;
+  line-height: 1.4;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.ourStorycontentHolder h2, .ourMissionContentHolder h2{
+  font-family: "Slackey";
+  font-size: 36px;
+  color: var(--fontColor2);
+  margin-bottom: 2%;
+}
+
+
+.adoptionProcess{
+  position: relative;
+  /* border: 1px solid orange; */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  margin-top: 10%;
+}
+
+.adoptionProcessImageHolder{
+  /* border: 2px solid crimson; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 10%;
+}
+
+.adoptionProcessImg{
+}
+
+.adoptionProcessContent{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 24px;
+  font-weight: 1000;
+  padding-top: 30%;
+  padding-right: 20%;
+}
+
+.adoptionProcessContent h2{
+  margin-left: 5%;
+  font-family: "Slackey";
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 5%;
+}
+
+
+
+
+/* Contact US */
+.contactUs{
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* border: solid 1px violet; */
+  width: 100%;
+}
+
+.contactUsImageHolder{
+  /* border: 1px solid blueviolet; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 5%;
+  justify-content: center;
+}
+
+.contactUsCat{
+  mix-blend-mode: hard-light;
+}
+
+
+.contactUsContent{
+  display: flex;
+  flex-direction: column;
+  /* border: solid 1px red; */
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Slackey";
+  color: var(--fontColor3);
+}
+
+.contactUsForm{
+  display: flex;
+  position: relative; 
+  flex-direction: column;
+  border: solid 1px #223125;
+  width: 87%;
+  margin-left: 1%;
+  align-items: center;
+  border-radius: 51px;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+.contactUsForm .bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #444E27;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+.contactHead{
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.input{
+  /* border: 1px solid green; */
+  display: grid ;
+  grid-template-columns: 1fr 3fr;
+  width: 100%;
+  justify-self: center;
+  align-items: center;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input input, textarea{
+  width: 100%;
+  border-radius: 50px;
+  border: 1px solid #444E27;
+  background: none;
+  height: 57px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+textarea {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+#msgInput{
+  align-items: flex-start;
+}
+
+#msgTxtArea{
+  height: 200px;
+}
+
+.contactUsfooter{
+  display: grid;
+  grid-template-columns: 1fr .5fr;
+  width: 90%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+
+.sendMsgBtn{
+  font-family: "Chakra Petch";
+  background-color: #E0D7C3;
+  border-radius: 50px;
+  border: 1px solid #444E27;
+  mix-blend-mode: multiply;
+  width: 264px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444E27;
+  font-weight: 1000;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.sendMsgBtn:hover{
+  background-color: #f0e7d3;
+  border-color: #2f3a1f;
+  box-shadow: 0 6px 18px rgba(34, 49, 37, 0.18);
+  transform: translateY(-1px);
+}
+
+.sendMsgBtn:active{
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 3px 10px rgba(34, 49, 37, 0.18);
+}
+
+.sideText{
+  font-family: "Chakra Petch";
+  font-size: 16px;
+}
+
+/* FOOTER */
+
+.grassFooter{
+  position: absolute;
+  bottom: 0;
+  z-index: -3;
+  /* background-image: url("images/homeImages/grass-footer.webp");
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: center center; */
+  width: 100%;
+  opacity: .5;
+  /* height: 800px; */
+}
+
+.footerBg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3F6032;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+.HomeFooter{
+  position: absolute;
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 217px;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1.5fr 2fr;
+  color: var(--bgColor);
+  font-size: 13px;
+  bottom: 0;
+}
+
+.HomeFooter div{
+  /* border: 1px blue solid; */
+}
+
+.foot1{
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+}
+
+.footLogo{
+  /* border: 1px solid green; */
+  width: 70%;
+}
+
+.footerLogoIcons{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 10%;
+  gap: 4%;
+  padding-bottom: 1%;
+}
+
+.smallIconsCon{
+  gap: 6%;
+  display: flex;
+  margin-bottom: .5%;
+  width: 100%;
+}
+
+.foot1Text, .bottomFoot1Text{
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  line-height: 1.3;
+  margin-bottom: 1%;
+}
+
+/* disabling mobile elements */
+.bottomFoot1Text{
+  display: none;
+}
+
+.foot2, .foot3, .foot4{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 7vh;
+}
+
+.homeBg1{
+  position: absolute;
+  width: 100%;
+  z-index: -3;
+  /* background-image: url("images/homeImages/home-bg-1.webp"); */
+  background-image: url("images/homeImages/page background.webp");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: center center;
+  /* border: 7px solid deepskyblue; */
+}
+
+/* .homeBg2{
+  position: absolute;
+  width: 100%;
+  z-index: -3;
+  margin-top: 286%;
+} */
+
+/* Break point for footer foot1 text breaking at 1216 width */
+@media only screen and (max-width: 1215px) {
+  .foot1{
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* NAV BREAK POINT */
+@media only screen and (max-width: 1170px) {
+  .nav{
+    width: 100%;
+  }
+}
+
+
+/* NAV / footer for tablet and breaking point of small laptop */
+@media only screen and (max-width: 930px) {
+
+  /* HTML BODY */
+  html, body{
+    overflow-x: hidden;
+  }
+
+
+  /* NAV */
+  /* turning off mobile designs */
+  
+  
+  .nav{
+    width: 100%;
+    grid-template-columns: .9fr 1.9fr .5fr;
+  }
+
+  .mainNav{
+    gap: 3%;
+    font-size: 18px;
+  }
+
+  .navLogo{
+    justify-content: flex-end;
+  }
+
+  .navControls{
+    gap: 7%;
+  }
+ 
+  
+  /* HOME INTRO */
+
+  .homeIntroImgBg{
+    margin-top: -300px;
+  }
+
+  .homeIntro{
+    /* border: 1px solid yellow; */
+  }
+
+  .homeIntro h1{
+    font-size: 64px;
+  }
+
+  .homeIntro h2{
+    font-size: 24px;
+  }
+
+  .startYoursBtn{
+    font-size: 16px;
+  }
+
+
+  /* OUR PETS */
+  .petPic{
+    width: 50%;
+  }
+
+
+
+  /* HOME INFORMATION SECTION */
+  .ourStory, .ourMission{
+    grid-template-columns: none;
+    grid-template-rows: 1fr auto;
+  }
+
+  .ourStoryimageHolder, .ourMissionImageHolder{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sideBranchImg{
+    margin-left: -20%;
+  }
+
+  .ourStoryDogsImg{
+    margin-top: 50px;
+    position: relative; 
+  }
+
+  .ourStorycontentHolder, .ourMissionContentHolder{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .catImg{
+    position: relative;
+    /* border: 1px solid black; */
+    margin-bottom: 0;
+  }
+
+  .rightBranchImg{
+    position: absolute;
+    right: -20px;
+    margin-bottom: 0 ;
+    bottom: -200px;
+  }
+
+  .ourMission{
+    /* border: 5px chartreuse; */
+    grid-template-rows: auto 1fr;
+  }
+
+  .ourMissionImageHolder{
+    /* border: 1px solid deeppink; */
+  }
+
+  .homeInformation{
+    /* border: solid 1px red; */
+  }
+
+
+
+  .adoptionProcess{
+    align-items: center;
+    margin-top: 0;
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+  }
+
+  .adoptionProcessContent{
+    grid-row: 1;
+    align-items: center;
+    padding-right: 10%;
+    padding-left: 10%;
+    font-size: 20px;
+    padding-top: 20%;
+  }
+
+  .adoptionProcessImageHolder{
+    justify-content: center;
+    padding-left: 0;
+    margin-top: 5%;
+  }
+
+  .adoptionProcessImg{
+    align-self: center;
+    margin-left: 0;
+    width: 88%;
+  }
+
+
+
+  /* CONTACT US */
+  
+  .contactUs{
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    /* border: 5px #FFD900 solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .contactUsImageHolder{
+    grid-row: 1;
+    position: absolute;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .contactUsCat{
+    /* border: 3px solid darkblue; */
+    opacity: .2;
+    z-index: -2;
+  }
+
+  .contactUsContent{
+    grid-row: 1;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contactUsForm{
+    margin-left: 0;
+    width: 100%;
+  }
+  
+
+  /* FOOTER */
+  .HomeFooter{
+    font-size: 11px;
+    grid-template-columns: 4fr 1fr 1.5fr 3fr;
+    height: 160px;
+  }
+
+  .HomeFooter div{
+    /* border: 1px solid blue; */
+  }
+
+  .foot1{
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .foot1Text{
+    margin-bottom: 0;
+  }
+
+  .footerLogoIcons{
+    align-items: flex-end;
+    gap: 2%;
+  }
+
+  .footLogo{
+    width: 50%;
+  }
+
+  .smallIconsCon{
+    width: 100%;
+    gap: 10%;
+  }
+}
+
+/* collapse nav Break Point */
+@media only screen and (max-width: 700px) {
+  
+  .nav{
+    grid-template-columns: 1fr 2fr 1fr;
+    box-shadow: 4px 1px 10px gray;
+  }
+
+  .nav div{
+    /* border: 1px solid blue; */
+  }
+
+  .mainNav{
+    display: none;
+  }
+
+  .burgerMenuCon{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 45px;
+    align-content: center;
+    cursor: pointer;
+  }
+
+  .burgerMenuBtn{
+    display: flex;
+    flex-direction: column;
+    width: 35px;
+    position: relative;
+    transition: .2s;
+  }
+
+  .burgerMenuBtn div{
+    border: none;
+    width: 100%;
+    height: 4px;
+    background: #223125;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 2px;
+    transition: .6s;
+    transition-timing-function: ease;
+  }
+
+  .burgerActive{
+    justify-content: center;
+  }
+
+  .burgerActive div:first-child{
+    position: absolute;
+    transform: rotate(45deg);
+    align-self: center;
+  }
+
+  .burgerActive div:last-child{
+    position: absolute;
+    transform: rotate(-45deg);
+    align-self: center;
+  }
+
+  .burgerActive div:nth-child(2){
+    opacity: 0;
+  }
+  
+
+
+  .navMobileSlide{
+    padding-top: 85px;
+    /* padding-bottom: 5%; */
+    position: absolute;
+    /* height: 500px; */
+    /* background-image: url("images/homeImages/nav\ slider\ bg.webp"); */
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    border-radius: 20px;
+    color: #223125;
+    background: #f0f1df;
+    font-weight: 1000;
+  }
+
+  .navMobileSlide div{
+    border-bottom: solid 2px #223125;
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navMobileSlide div:last-child{
+    border: none;
+  }
+
+  .appear{
+    display: flex;
+  }
+
+  .navLogo{
+    grid-template-columns: 2;
+    justify-content: center;
+  }
+
+
+  /* FOOTER */
+  .HomeFooter{
+    grid-template-columns: 1fr 1fr 3fr 2fr;
+    grid-row: 1 1fr;
+    height: auto;
+    text-align: center;
+  }
+
+  .foot1{
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .foot2, .foot3, .foot4{
+    padding-top: 5vh;
+    align-items: flex-start;
+  }
+
+  .footerLogoIcons{
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    grid-row: 1 / 3;
+  }
+
+  .smallIconsCon{
+    width: 60%;
+  }
+
+  .smallIconsCon img{
+    width: 100%;
+  }
+
+  .foot1Text{
+    display: none;
+  }
+
+  .bottomFoot1Text{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    grid-row: 2;
+    grid-column: 1 / 5;
+  }
+
+  .footLogo{
+    width: 90%;
+  }
+
+  .smallIconsCon{
+    justify-content: center;
+  }
+
+  .foot2{
+    grid-column: 1;
+  }
+
+  .foot3{
+    grid-column: 2;
+  }
+
+  .foot4{
+    grid-column: 4;
+  }
+
+  
+  
+}
+
+
+/* Mobile View */
+@media only screen and (max-width: 451px){
+
+  /* HOME INTRO */
+  
+  .homeIntroLogo{
+    width: 220px;
+  }
+
+  .homeIntro h1{
+    font-size: 48px;
+  }
+
+  .homeIntro h2{
+    font-size: 20px;
+  }
+
+  .startYoursBtn{
+    margin-top: 5%;
+  }
+
+
+  /* OUR PETS */
+  .petPic{
+    width: 80%;
+    border-radius: 20px;
+  }
+
+  .left{
+    transform: rotateY(60deg) scale(.5) translateX(-500px);
+  }
+
+  .right{
+    transform: rotateY(-60deg) scale(.5) translateX(500px);
+  }
+
+
+
+  /* CONTACT US */
+  .contactUs{
+    
+  }
+
+  .contactUsForm{
+    font-size: 18px;
+    border-radius: 30px;
+  }
+
+  .input input, textarea{
+    height: 32px;
+  }
+
+  #msgTxtArea{
+    height: 91px;
+    border-radius: 10px;
+  }
+  
+  .input p{
+    font-size: 14px;
+  }
+
+  .contactUsfooter{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    /* border: 1px solid blue; */
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .sendMsgBtn{
+    font-size: 16px;
+    width: 168px;
+    height: 41px;
+    grid-row: 1;
+  }
+
+  /* footer */
+  .HomeFooter{
+    font-size: 6px;
+  }
+
+}
+

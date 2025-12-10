@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Slackey&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="globalFooterNav.css">
+        <script defer src="global.js" ></script>
+        <style>
+            /*Global Styles*/
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+
+          /* Body */
+          body {
+            position: relative;
+            background-image: url(images/login-images/heather-green-1GuZ9y1qAT8-unsplash-3.webp);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 1rem;
+            font-size: 16px;
+            padding-bottom: 300px;
+            padding-top: 70px;
+          }
+
+          /* Main Frame*/
+          .mainframe{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            gap: 2rem;
+            flex-wrap: nowrap;
+            padding: 3vw;
+          }
+
+          .dog-image{
+            flex: 0 1 auto;
+            width: auto;
+            max-width: 60rem;
+            min-width: 35rem;
+            height: auto;
+          }
+
+          .dog-image img{
+            mix-blend-mode: overlay;
+            width: 100%;
+            height: 40rem;
+            object-fit: contain;
+            display: block;
+          }
+          form{
+            display: flex;
+            flex-direction: column;
+            border: 0.125rem solid #725134;
+            width: 45rem;
+            height: 40rem;
+            border-radius: 2rem;
+            padding: 2rem;
+            position: relative;
+            flex: 0 1 auto;
+          }
+          form::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(68, 78, 39, 0.5);
+            mix-blend-mode: overlay;
+            border-radius: inherit;
+            z-index: 0;
+          }
+
+          .maintext{
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+          }
+
+          form h2{
+            text-align: center;
+            font-family: 'slackey';
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+          }
+
+          form p{
+            font-family: 'chakra petch';
+            font-size: 1.25rem;
+            font-weight: 500;
+          }
+
+          .form-group{
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            z-index: 1;
+          }
+
+          .form-group.confirm-password-group {
+            grid-template-columns: 120px 1fr;
+          }
+
+          .form-group.confirm-password-group label {
+            line-height: 1.2;
+            white-space: normal;
+          }
+
+          .form-group label{
+            font-family: 'slackey';
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+
+          .form-group input{
+            width: 100%;
+            max-width: 100%;
+            height: 3.56rem;
+            border-radius: 3rem;
+            padding: 0 1.5rem;
+            padding-right: 3.5rem;
+            border: 0.0625rem solid #444E27;
+            background-color: #ffffff00;
+            font-size: 1.25rem;
+            font-family: 'chakra petch';
+            color: #444E27;
+            box-sizing: border-box;
+          }
+
+          .form-group input:-webkit-autofill,
+          .form-group input:-webkit-autofill:hover,
+          .form-group input:-webkit-autofill:focus,
+          .form-group input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+            -webkit-text-fill-color: #444E27 !important;
+            transition: background-color 5000s ease-in-out 0s;
+          }
+
+          .form-group input::placeholder{
+            color: #444E2780;
+          }
+
+          .form-group input:focus{
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.05);
+          }
+
+          .form-group .eyeicon1{
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+          }
+
+          .form-group .eyeicon1:hover{
+            opacity: 0.7;
+          }
+          .form-group .eyeicon{
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+          }
+
+          .form-group .eyeicon:hover{
+            opacity: 0.7;
+          }
+
+          .form-options{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+          }
+
+          .login-link {
+            order: 1;
+          }
+
+          .signup-button {
+            order: 2;
+          }
+          
+          .signup-button input{
+            width: 12.5rem;
+            height: 4.18rem;
+            border-radius: 3rem;
+            background-color: rgba(71, 50, 5, 0.27);
+            color: #444E27;
+            font-family: 'chakra petch';
+            font-size: 1.25rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .signup-button input:hover{
+            background-color: rgba(71, 50, 5, 0.55);
+            transform: translateY(-0.125rem);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+          }
+
+          .signup-button input:active{
+            transform: translateY(0);
+            background-color: rgba(71, 50, 5, 0.65);
+          }
+
+          .login-link a{
+            color: #444E27;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+          }
+
+          .login-link a:hover{
+            opacity: 0.7;
+            text-decoration: underline;
+          }
+          
+          .login-link p{
+            white-space: nowrap;
+            font-family: 'chakra petch';
+          }
+
+          /* Responsive Design */
+          @media (max-width: 1280px) {
+            .mainframe {
+              flex-wrap: nowrap;
+              gap: 1rem;
+            }
+            
+            .dog-image{
+              display: none;
+            }
+
+            form {
+              width: 40rem;
+              min-width: 40rem;
+              height: 40rem;
+              padding: 2rem;
+              flex: 0 1 auto;
+            }
+
+            form::after{
+              content: "";
+              position: absolute;
+              inset: 0;
+              background-image: url(images/login-images/Dogs\ image\ \(1\).webp);
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+              mix-blend-mode: soft-light;
+              border-radius: inherit;
+              z-index: 0;
+              pointer-events: none;
+            }
+
+          }
+          
+          @media (max-width: 1024px) {
+            .mainframe {
+              flex-direction: column;
+              gap: 1rem;
+            }
+
+            .dog-image {
+              display: none;
+            }
+
+            form {
+              width: 90%;
+              max-width: 40rem;
+              min-width: unset;
+              height: 40rem;
+              margin: 0 auto;
+            }
+
+            form::after{
+              content: "";
+              position: absolute;
+              inset: 0;
+              background-image: url(images/login-images/Dogs\ image\ \(1\).webp);
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+              mix-blend-mode: soft-light;
+              border-radius: inherit;
+              z-index: 0;
+              pointer-events: none;
+            }
+
+            .maintext,
+            .form-group,
+            .form-options {
+              position: relative;
+              z-index: 2;
+            }
+
+            .form-group label,
+            .form-group input,
+            .signup-button input,
+            .login-link p,
+            .login-link a,
+            form h2,
+            form p {
+              position: relative;
+              z-index: 2;
+            }
+
+            .form-group .eyeicon,
+            .form-group .eyeicon1 {
+              z-index: 3;
+            }
+
+            .maintext h2 {
+              font-size: 2rem;
+            }
+
+            .maintext p {
+              font-size: 1.25rem;
+            }
+
+            .form-group {
+              grid-template-columns: 120px 1fr;
+              gap: 1rem;
+              margin-bottom: 1.5rem;
+            }
+
+            .form-group.confirm-password-group {
+              grid-template-columns: 120px 1fr;
+            }
+
+            .form-group label {
+              font-size: 1.25rem;
+            }
+
+            .form-group input {
+              font-size: 1.25rem;
+              height: 3.56rem;
+              padding: 0 1.5rem;
+              padding-right: 3.5rem;
+            }
+
+            .form-group .eyeicon, .form-group .eyeicon1 {
+              right: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            .form-options {
+              flex-direction: row;
+              justify-content: space-between;
+              gap: 3rem;
+              align-items: center;
+            }
+
+            .login-link {
+              text-align: left;
+              order: 1;
+            }
+
+            .login-link p {
+              font-size: 1.25rem;
+            }
+
+            .signup-button {
+              order: 2;
+              display: flex;
+              justify-content: flex-end;
+            }
+
+            .signup-button input {
+              width: 12.5rem;
+              height: 4rem;
+              font-size: 1.25rem;
+            }
+          }
+
+          /* Mobile Styles */
+          @media (max-width: 768px) {
+            body {
+              padding-top: 100px;
+              padding-bottom: 110px;
+              min-height: 100vh;
+            }
+
+            .mainframe {
+              padding: 1.5rem 0.5rem;
+              flex-direction: column;
+              margin-bottom: 3rem;
+            }
+
+            .dog-image {
+              order: 2;
+              width: 100%;
+              max-width: 100%;
+              min-width: unset;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 2rem;
+            }
+
+            .dog-image img {
+              max-width: 100%;
+              height: auto;
+            }
+
+            form {
+              width: 38.5rem;
+              max-width: 100%;
+              min-width: unset;
+              padding: 1.5rem;
+              border-radius: 1.5rem;
+              height: auto;
+              order: 1;
+              margin-bottom: 1rem;
+            }
+
+            form::after{
+              display: none;
+            }
+
+            .maintext {
+              margin-bottom: 1.5rem;
+            }
+
+            .maintext h2 {
+              font-size: 2rem;
+              margin-bottom: 0.3rem;
+            }
+
+            .maintext p {
+              font-size: 1.25rem;
+            }
+
+            .form-group {
+              grid-template-columns: 140px 1fr;
+              gap: 0.5rem;
+              margin-bottom: 1rem;
+              text-align: left;
+              align-items: center;
+            }
+
+            .form-group.confirm-password-group {
+              grid-template-columns: 140px 1fr;
+            }
+
+            .form-group.confirm-password-group label {
+              white-space: normal;
+              line-height: 1.2;
+            }
+
+            .form-group label {
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+
+            .form-group input {
+              height: 3.56rem;
+              font-size: 0.95rem;
+              padding: 0 1rem;
+              padding-right: 2.75rem;
+            }
+
+            .form-group .eyeicon,
+            .form-group .eyeicon1 {
+              right: 1rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            .form-options {
+              flex-direction: column;
+              gap: 0.75rem;
+              margin-top: 0.5rem;
+            }
+
+            .signup-button {
+              order: 2;
+              width: 100%;
+              justify-content: center;
+            }
+
+            .signup-button input {
+              width: 10rem;
+              height: 3rem;
+              font-size: 1rem;
+            }
+
+            .login-link {
+              order: 1;
+              text-align: center;
+            }
+
+            .login-link p {
+              font-size: 1.25rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .dog-image img {
+              max-width: 25rem;
+            }
+
+            form {
+              width: 100%;
+              min-width: unset;
+              padding: 1.25rem;
+            }
+
+            form::after{
+              display: none;
+            }
+
+            .maintext h2 {
+              font-size: 1.5rem;
+            }
+
+            .maintext p {
+              font-size: 0.85rem;
+            }
+
+            .form-group {
+              grid-template-columns: 80px 1fr;
+              gap: 0.5rem;
+            }
+
+            .form-group.confirm-password-group {
+              grid-template-columns: 80px 1fr;
+            }
+
+            .form-group.confirm-password-group label {
+              white-space: normal;
+              line-height: 1.2;
+            }
+
+            .form-group label {
+              font-size: 0.9rem;
+            }
+
+            .form-group input {
+              height: 2.5rem;
+              font-size: 0.95rem;
+            }
+
+            .signup-button input {
+              width: 9rem;
+              height: 2.75rem;
+              font-size: 0.95rem;
+            }
+
+            .login-link p {
+              font-size: 0.8rem;
+            }
+          }
+        </style>
+    </head>
+    <body>
+        <!-- NAV BAR -->
+      <div class="nav">
+          <!-- Burger menu button for mobile -->
+          <div class="burgerMenuCon" >
+              <div class="burgerMenuBtn" >
+                  <div></div>
+                  <div></div>
+                  <div></div>
+              </div>
+          </div>
+
+          <div class="navLogo">
+              <img src="images/homeImages/Jurassic Bark.webp" alt="">
+          </div>
+          <div class="mainNav">
+              <p><a href="index.html">Home</a></p>
+              <p> <a href="aboutUs.html">About Us</a></p>
+              <p> <a href="ourAnimals.html">Our Animals</a></p>
+              <p><a href="contact.html">Contact Us</a></p>
+              <p><a href="faqs.html">FAQs</a></p>
+          </div>
+          <div class="navControls">
+              <!-- Search SVG -->
+              <svg class="searchIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.3333 31.6667C25.6971 31.6667 31.6667 25.6971 31.6667 18.3333C31.6667 10.9695 25.6971 5 18.3333 5C10.9695 5 5 10.9695 5 18.3333C5 25.6971 10.9695 31.6667 18.3333 31.6667Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M35 35L27.75 27.75" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <!-- User Svg -->
+              <svg class="userIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M33.3337 35V31.6667C33.3337 29.8986 32.6313 28.2029 31.381 26.9526C30.1308 25.7024 28.4351 25 26.667 25H13.3337C11.5655 25 9.86986 25.7024 8.61961 26.9526C7.36937 28.2029 6.66699 29.8986 6.66699 31.6667V35" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19.9997 18.3333C23.6816 18.3333 26.6663 15.3486 26.6663 11.6667C26.6663 7.98477 23.6816 5 19.9997 5C16.3178 5 13.333 7.98477 13.333 11.6667C13.333 15.3486 16.3178 18.3333 19.9997 18.3333Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+          </div>
+      </div>
+
+      <div class="navMobileSlide">
+          <div class="navItem">
+              <a href="index.html"><p>HOME</p></a>
+          </div>
+          
+          <div class="navItem">
+              <a href="aboutUs.html"><p>ABOUT US</p></a>
+          </div>
+
+          <div class="navItem">
+              <a href="ourAnimals.html"><p>OUR ANIMALS</p></a>
+          </div>
+
+          <div class="navItem">
+              <a href="contact.html"><p>CONTACT US</p></a>
+          </div>
+
+          <div class="navItem">
+              <a href="faqs.html"><p>FAQs</p></a>
+          </div>
+
+      </div>
+
+        <section class="mainframe">
+            <div class="dog-image">
+                <img src="images/login-images/Dogs image (1).webp" alt="dogimage">
+            </div>
+            <form action="signup.php" method="POST">
+                <div class="maintext">
+                    <h2>Join The Journey!</h2>
+                    <p>Open your heart to a new companion.</p>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <svg class="eyeicon" id="eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path id="eyePath1" d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#444E27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path id="eyePath2" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#444E27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line id="eyeSlash" x1="3" y1="3" x2="21" y2="21" stroke="#444E27" stroke-width="2" stroke-linecap="round" style="display: none;"/>
+                    </svg>
+                </div>
+                <div class="form-group confirm-password-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                    <svg class="eyeicon1" id="eye1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path id="eyePath1-confirm" d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#444E27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path id="eyePath2-confirm" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#444E27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line id="eyeSlash1" x1="3" y1="3" x2="21" y2="21" stroke="#444E27" stroke-width="2" stroke-linecap="round" style="display: none;"/>
+                    </svg>
+                </div>
+                <div class="form-options">
+                    <div class="signup-button">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                    <div class="login-link">
+                        <p>Have an account? <a href="login.php">Log in here</a></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+     <div class="HomeFooter">
+        <div class="footerBg" ></div>
+        <div class="foot1" >
+            <div class="footerLogoIcons" >
+                <img class="footLogo" src="images/homeImages/Jurassic Bark.svg" alt="">
+                <div class="smallIconsCon">
+                    <img class="smallIcons" src="images/homeImages/facebook.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/instagram.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt="">            </div>
+                </div>
+            <div class="foot1Text" >
+                © 2025 Jurassic Bark. All Rights Reserved.
+                <br>
+                Registered Nonstock, Nonprofit Organization — SEC Registration No. CN2025-XXXXXX
+                <br>   
+                Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+            </div>
+
+        </div>
+
+        <!-- bottom foot1 text for mobile -->
+        <div class="bottomFoot1Text" >
+            © 2025 Jurassic Bark. All Rights Reserved.
+            <br>
+            Registered Nonstock, Nonprofit Organization — SEC Registration No. CN2025-XXXXXX
+            <br>   
+            Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+        </div>
+            
+        <div class="foot2" >
+            Home
+            <br>
+            About Us
+            <br>
+            Our Animals
+            <br>
+            Contact Us
+            <br>
+            FAQs
+        </div>
+        <div class="foot3" >
+            Privacy Policy
+            <br>
+            Terms of Service
+            <br>
+            Adoption Policy
+            <br>
+            Licensing or nonprofit 
+            <br>
+            registration info
+        </div>
+        <div class="foot4" >
+            Tarlac State University - San Isidro Campus, 
+            <br>
+            Brgy. San Isidro, Tarlac City, 2300 Tarlac
+            <br>
+            +63 912 345 6789
+            <br>
+            jurassicbark@gmail.com
+            <br>
+            MON to SAT, 10 AM - 6 PM
+            <br>
+            No Noon Time Break
+        </div>
+     </div>
+
+        <script>
+            // Password toggle
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye');
+            const eyeSlash = document.getElementById('eyeSlash');
+
+            eyeIcon.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeSlash.style.display = 'block';
+                } else {
+                    passwordInput.type = 'password';
+                    eyeSlash.style.display = 'none';
+                }
+            });
+
+            // Confirm Password toggle
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const eyeIcon1 = document.getElementById('eye1');
+            const eyeSlash1 = document.getElementById('eyeSlash1');
+
+            eyeIcon1.addEventListener('click', function() {
+                if (confirmPasswordInput.type === 'password') {
+                    confirmPasswordInput.type = 'text';
+                    eyeSlash1.style.display = 'block';
+                } else {
+                    confirmPasswordInput.type = 'password';
+                    eyeSlash1.style.display = 'none';
+                }
+            });
+        </script>
+    </body>
+</html>

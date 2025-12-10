@@ -1,0 +1,323 @@
+/* -------------------- FONTS -------------------- */
+.slackey-regular {
+  font-family: "Slackey", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.chakra-petch-regular {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* -------------------- RESET -------------------- */
+/* CSS RESET */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+/* VARIABLES */
+:root{
+  --fontColor: #223125;
+  --fontColor2: #725134;
+  --fontColor3: #444E27;
+  --bgColor: #DEDCCA;
+}
+
+
+/* MAIN STARTING STYLING */
+/* PAGE STYLING */
+body{
+    position: relative;
+    background: var(--bgColor);
+    color: var(--fontColor);
+    font-family: "Chakra Petch";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid violet; */
+    overflow-x: hidden;
+    
+    
+    /* Temporary bottom padding */
+    padding-bottom: 300px;
+
+}
+
+/* -------------------- BASE -------------------- */
+body {
+  font-family: "Chakra Petch", sans-serif;
+  background: url("fabric_background.png") no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Hamburger */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: all 0.3s ease;
+}
+
+.menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* -------------------- CONTACT SECTION -------------------- */
+.contact-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  font-family: "Slackey";
+  color: #3f6032;
+}
+
+.contact-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 5px;
+  max-width: 1600px;
+  width: 100%;
+}
+
+
+.contact-image {
+  flex: 1.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100vh;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+  mix-blend-mode: overlay;
+}
+
+.contact-form {
+  flex: 1.2;
+  background-color: rgba(244, 241, 207, 0.9);
+  padding: 50px;
+  border-radius: 25px;
+  border: 1px solid rgba(60, 60, 40, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  mix-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #666;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  mix-blend-mode: multiply;
+}
+
+/* Fixed message box size */
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact-form .bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.contact-form .call {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: medium;
+  color: #444;
+}
+
+.contact-form button {
+  background-color: #c0a87b;
+  border: 1px solid #2f4a26;
+  color: #2f4a26;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  mix-blend-mode: normal;
+}
+
+.submit {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: medium;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  /* Hide dog image on tablet */
+  .contact-image img {
+    display: none;
+  }
+
+  .contact-form {
+    order: 1;
+    width: 117%;
+  }
+}
+
+/* -------------------- MOBILE -------------------- */
+@media (max-width: 768px) {
+  /* Contact section */
+  .contact-container {
+    flex-direction: column-reverse !important;
+    align-items: center;
+  }
+
+  .contact-image img {
+    display: block !important;
+    order: 1;
+    width: 125%;
+    height: 75%;
+    border-radius: 15px;
+    object-fit: contain;
+  }
+  .contact-form {
+    width: 117%;
+  }
+  .contact-form .bottom-row{
+    flex-direction: column-reverse !important;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem;
+  }
+
+}
+
+/* -------------------- TABLET -------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Contact section fix */
+  .contact-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 0;
+  }
+
+  .contact-image img {
+    display: block !important;
+    position: absolute;
+    top: 12%;
+    bottom: 10%;
+    width: 100%;
+    max-width: 200%;
+    object-fit: cover;
+    opacity: 0.5;
+    height: 50vh;
+    z-index: 0;
+  }
+
+  .contact-form {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(244, 241, 207, 0.85);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(60, 60, 40, 0.25);
+    width: 100%;
+  }
+}
+

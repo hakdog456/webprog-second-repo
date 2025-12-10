@@ -1,0 +1,296 @@
+
+/* CSS RESET */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+/* VARIABLES */
+:root{
+  --fontColor: #223125;
+  --fontColor2: #725134;
+  --fontColor3: #444E27;
+  --bgColor: #DEDCCA;
+}
+
+
+/* MAIN STARTING STYLING */
+/* PAGE STYLING */
+body{
+    position: relative;
+    background: var(--bgColor);
+    color: var(--fontColor);
+    font-family: "Chakra Petch";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid violet; */
+    overflow-x: hidden;
+    
+    
+    /* Temporary bottom padding */
+    padding-bottom: 300px;
+
+}
+
+
+/* -------------------- FONTS -------------------- */
+.slackey-regular {
+  font-family: "Slackey", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.chakra-petch-regular {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* RESET  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  /* height: 100%; */
+}
+
+/* BASE */
+body {
+  background: url("fabric_background.png") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+
+/* ------------- MAIN / FAQ SECTION ------------- */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.faq-container {
+  display: flex;
+  width: 95%;
+  max-width: 1400px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 120px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.faq-image {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  opacity: 0.9;
+  border-radius: 20px;
+  mix-blend-mode: overlay;
+}
+
+.faq-box {
+  flex: 1.5;
+  background-color: rgba(244, 241, 207, 0.9);
+  padding: 60px;
+  border-radius: 55px;
+  border: 1px solid #2f4a26;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  mix-blend-mode: multiply;
+  font-family: "Chakra Petch", sans-serif;
+
+}
+
+.faq-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #444e27;
+  font-family: "Slackey";
+}
+
+details {
+  color: #444e27;
+  border: 1px solid #2f4a26;
+  border-radius: 45px;
+  padding: 20px 10px;
+  mix-blend-mode: multiply;
+  margin-bottom:10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+summary {
+  font-weight: bold;
+  color: #444e27;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary::after {
+  content: "﹀";
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+
+
+/* ------------- TABLET VIEW ------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Blend FAQ + Cat */
+  .faq-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .faq-box {
+    position: relative;
+    z-index: 1;
+    width: 90%;  
+    mix-blend-mode: multiply;
+  }
+
+  .faq-image {
+    position: absolute;
+    right: 25;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.7;
+    mix-blend-mode: overlay;
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+  }
+}
+
+
+/* --- MOBILE VIEW --- */
+@media (max-width: 768px) {
+  /* FAQ layout */
+  .faq-section{
+    background-image: none;
+    padding-bottom: 0;
+  }
+  .faq-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .faq-box {
+    order: 1;
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 35px;
+    background-color: rgba(244, 241, 207, 0.95);
+    margin-bottom: -20px;
+    z-index: 2;
+    position: relative;
+  }
+
+  .faq-image {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .faq-image img {
+    margin-top: 50px;
+    width: 125%;
+    height: 50vh;
+    border-radius: 25px;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+    filter: brightness(1);
+    
+  }
+  body, html {
+    background: url("fabric_background.png");
+  }
+
+}
