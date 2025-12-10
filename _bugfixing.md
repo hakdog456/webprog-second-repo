@@ -11,6 +11,8 @@
 - when not logged in, when user profile is clicked it should go to login (it goes to user dashboard kase eh even if no ones logged in, it shows "username")
 - in user, after submitting application, i suggest for the view to revert to dashboard (it still goes back to user application kase eh)
 - from the user, when meet and greet is clicked, it should go to meet and greet (it still goes back to user application kase eh)
+- contact.html: nothing happens when send message is clicked : tiny gap below footer on 768px - 1024px -- minnardfix
+
 
 ---
 
@@ -80,10 +82,7 @@ user-application-page.html : admin any
 - I had to relogin to fix the mentioned above
 -- https://youtu.be/0U6URtLGYkM?t=591
 
-contact.html
-- nothing happens when I click send message? 
-- tiny gap below footer on 768px - 1024px 
--- https://youtu.be/0U6URtLGYkM?t=707
+
 
 faqs.html
 - big gap below footer after 768px, disappears when you expand one of the faqs 
