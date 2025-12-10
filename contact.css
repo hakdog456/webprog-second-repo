@@ -15,7 +15,9 @@
 /* CSS RESET */
 
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -39,18 +41,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -58,54 +73,47 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
-
 /* VARIABLES */
-:root{
+:root {
   --fontColor: #223125;
   --fontColor2: #725134;
-  --fontColor3: #444E27;
-  --bgColor: #DEDCCA;
+  --fontColor3: #444e27;
+  --bgColor: #dedcca;
 }
-
 
 /* MAIN STARTING STYLING */
 /* PAGE STYLING */
-body{
-    position: relative;
-    background: var(--bgColor);
-    color: var(--fontColor);
-    font-family: "Chakra Petch";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* border: 2px solid violet; */
-    overflow-x: hidden;
-    
-    
-    /* Temporary bottom padding */
-    padding-bottom: 300px;
-
-}
-
-/* -------------------- BASE -------------------- */
 body {
-  font-family: "Chakra Petch", sans-serif;
-  background: url("fabric_background.png") no-repeat center center / cover;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: "Chakra Petch", sans-serif;
+  background: url("fabric_background.png") no-repeat center center / cover;
+  color: var(--fontColor);
+}
+
+.main, .contact-section {
+    flex: none; /* content height only */
 }
 
 /* Hamburger */
@@ -131,9 +139,7 @@ body {
 
 /* -------------------- CONTACT SECTION -------------------- */
 .contact-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+  flex: none;
   align-items: center;
   padding: 80px 40px;
   font-family: "Slackey";
@@ -149,7 +155,6 @@ body {
   width: 100%;
 }
 
-
 .contact-image {
   flex: 1.9;
   display: flex;
@@ -159,15 +164,16 @@ body {
 
 .contact-image img {
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-height: 600px;
+  max-width: 800px;
   object-fit: cover;
   border-radius: 20px;
   mix-blend-mode: overlay;
 }
 
 .contact-form {
-  flex: 1.2;
+  flex: none;
   background-color: rgba(244, 241, 207, 0.9);
   padding: 50px;
   border-radius: 25px;
@@ -242,16 +248,22 @@ body {
   transform: scale(1.05);
 }
 
+/* Footer fix for contact us page */
+.footerBg {
+    height: auto;
+    min-height: 245px;
+}
+
 /* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 1024px) {
   .contact-container {
     flex-direction: column;
   }
 
-  /* Hide dog image on tablet */
+  /* Hide dog image on tablet 
   .contact-image img {
     display: none;
-  }
+  }*/
 
   .contact-form {
     order: 1;
@@ -263,28 +275,44 @@ body {
 @media (max-width: 768px) {
   /* Contact section */
   .contact-container {
-    flex-direction: column-reverse !important;
+    flex-direction: column-reverse;
     align-items: center;
   }
 
+  .contact-image {
+    display: none !important;
+  }
   .contact-image img {
-    display: block !important;
-    order: 1;
-    width: 125%;
-    height: 75%;
-    border-radius: 15px;
-    object-fit: contain;
-  }
-  .contact-form {
-    width: 117%;
-  }
-  .contact-form .bottom-row{
-    flex-direction: column-reverse !important;
-    align-items: center;
-    gap: 20px;
-    padding: 1rem;
+    display: none !important;
   }
 
+  .contact-form {
+    max-width: 600px;
+    max-height: 800px;
+    overflow-y: auto;
+    font-size: clamp(12px, 1.2vw, 16px); /* responsive text */
+  }
+
+  .contact-form h2 {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .contact-form label {
+    font-size: clamp(12px, 1.5vw, 14px);
+  }
+
+  .HomeFooter {
+    margin-top: 40px;
+  }
+
+  .footerBg {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .bottomFoot1Text {
+    text-align: center;
+  }
 }
 
 /* -------------------- TABLET -------------------- */
@@ -299,7 +327,6 @@ body {
   }
 
   .contact-image img {
-    display: block !important;
     position: absolute;
     top: 12%;
     bottom: 10%;
@@ -327,11 +354,11 @@ body {
     min-height: 100vh;
   }
   .HomeFooter {
-    margin-top: 40px;          
+    margin-top: auto;
   }
 
   .footerBg {
     height: auto;
     min-height: 240px;
   }
-} 
+}
