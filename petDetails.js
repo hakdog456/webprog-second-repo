@@ -9,14 +9,51 @@
 	const bottomApplyBtn = document.getElementById('bottomApplyBtn');
 	const heartIcon = document.querySelector('.heartIcon');
 
+	// Check if user is logged in
+	const isUserLoggedIn = () => {
+		const username = localStorage.getItem('username');
+		const userId = localStorage.getItem('userId');
+		
+		// Check for jurassicBark_user JSON
+		if (!username && !userId) {
+			const jurassicBarkUser = localStorage.getItem('jurassicBark_user');
+			if (jurassicBarkUser) {
+				try {
+					const user = JSON.parse(jurassicBarkUser);
+					return !!(user.username || user.userId);
+				} catch (e) {
+					return false;
+				}
+			}
+		}
+		
+		return !!(username || userId);
+	};
+
 	const setApplyTargets = (petId) => {
-		const href = `user-application-page.html?petId=${petId}`;
 		[applyBtn, bottomApplyBtn].forEach((btn) => {
 			if (!btn) return;
-			btn.href = href;
-			btn.onclick = () => {
+			
+			// Remove href to prevent default link behavior
+			btn.removeAttribute('href');
+			btn.style.cursor = 'pointer';
+			
+			btn.onclick = (e) => {
+				e.preventDefault();
+				
+				// Check if user is logged in
+				if (!isUserLoggedIn()) {
+					// Store the intended petId so they can continue after login
+					localStorage.setItem('pendingPetId', String(petId));
+					// Redirect to sign-up page
+					window.location.href = 'sign-up.php';
+					return false;
+				}
+				
+				// User is logged in, proceed to application page
 				localStorage.setItem('petID', String(petId));
-				return true;
+				window.location.href = `user-application-page.html?petId=${petId}`;
+				return false;
 			};
 		});
 	};

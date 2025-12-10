@@ -45,7 +45,7 @@ ourAnimals.html
 - go back to this after doing all the stuff below (at the end it will add so many placeholder animals)
 -- https://youtu.be/0U6URtLGYkM?t=669 
 
-from petdetails.html to user-application-page.html - DUSTIN (ATTEMPT TO FIX)
+from petdetails.html to user-application-page.html - DUSTIN - FIXED!
 - https://youtu.be/0U6URtLGYkM?t=204
 - https://youtu.be/0U6URtLGYkM?t=227
 - if I try to click "Know More" on an animal and click Apply Now BEFORE signing in, it will make me go to this page with the content bugging out 
