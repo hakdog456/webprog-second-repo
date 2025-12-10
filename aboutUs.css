@@ -241,6 +241,18 @@ body{
     font-weight: 1000;
 }
 
+.footerBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    /* push the background down slightly without affecting text */
+    transform: translateY(20px); /* adjust 5px as needed */
+}
+
 
 /* SMALL LAPTOP BREAK POINT */
 @media only screen and (max-width: 1024px) {
@@ -266,6 +278,10 @@ body{
     
     .teamCards{
         margin-bottom: 10%;
+    }
+    
+    .footerBg {
+        transform: translateY(35px); /* adjust 5px as needed */
     }
 }
 
@@ -305,6 +321,9 @@ body{
         font-size: 16px;
     }
 
+    .footerBg {
+        transform: translateY(5px); /* adjust 5px as needed */
+    }
 }
 
 

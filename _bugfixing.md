@@ -14,6 +14,7 @@
 - contact.html: nothing happens when send message is clicked : tiny gap below footer on 768px - 1024px -- minnardfix
 - faqs.html: big gap below footer after 768px, disappears when you expand one of the details, footer background disappearing when <600px - 768px -- minnardfix
 - login.php & sign-up.php: tiny gap below footer on 1024px -- minnardfix
+- aboutUs.html: tiny gap below footer on 768px - 1024px -- minnardfix
 
 ---
 
@@ -29,10 +30,6 @@ WORKING ON ALL TINY GAP BELOW FOOTERS - MENNARD
 index.php
 - tiny gap below footer on 768px - 1024px 
 - https://youtu.be/0U6URtLGYkM?t=110
-
-aboutUs.html 
-- tiny gap below footer on 768px - 1024px 
-- https://youtu.be/0U6URtLGYkM?t=131
 
 ourAnimals.html 
 - https://youtu.be/0U6URtLGYkM?t=158
