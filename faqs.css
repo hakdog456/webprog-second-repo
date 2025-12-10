@@ -95,8 +95,8 @@ body {
   flex-direction: column;
   align-items: center;
   /* border: 2px solid violet; */
-  overflow-x: hidden;
-
+  overflow-x: hidden;  
+  
   /* Temporary bottom padding 
     padding-bottom: 300px;*/
 }
@@ -122,7 +122,7 @@ body {
 
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   margin: 0;
   padding: 0;
 }
@@ -154,6 +154,9 @@ main {
   gap: 120px;
   margin: 0 auto;
   padding: 40px 0;
+  /* padding-top: 200px; */
+  border: 1px solid pink;
+  margin-bottom: 100px;
 }
 
 .faq-image {
