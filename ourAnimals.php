@@ -32,6 +32,7 @@ if (isset($_GET['json'])) {
     <link rel="stylesheet" href="globalFooterNav.css">
     <script defer src="ourAnimals.js"></script>
     <script defer src="global.js"></script>
+    <script defer src="adminNavRedirect.js"></script>
 </head>
 <body>
     <div id="petsData" data-pets='<?php echo htmlspecialchars(json_encode($pets, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8'); ?>' hidden></div>

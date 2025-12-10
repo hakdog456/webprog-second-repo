@@ -7,6 +7,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Slackey&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="globalFooterNav.css">
         <script defer src="global.js" ></script>
+        <script defer src="adminNavRedirect.js"></script>
+
         <style>
             /*Global Styles*/
           * {

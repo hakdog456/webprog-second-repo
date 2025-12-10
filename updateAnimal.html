@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurassic Bark | Update Animal</title>
+    <link rel="stylesheet" href="global-application-styles.css">
+    <link rel="stylesheet" href="globalFooterNav.css">
+    <style>
+        body {
+            background: #DEDCCA;
+            font-family: "Chakra Petch", sans-serif;
+            color: #223125;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .formContainer {
+            width: 87%;
+            max-width: 1200px;
+            background: rgba(224, 215, 195, 0.8);
+            border: 2px solid #444E27;
+            border-radius: 50px;
+            padding: 60px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .formBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #444E27;
+            mix-blend-mode: overlay;
+            border-radius: 50px;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .formTitle {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .formContent {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .imageSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .imageUploadBox {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 2px dashed #444E27;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imageUploadBox img.preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .imageUploadBox .placeholder {
+            text-align: center;
+            color: #444E27;
+        }
+
+        .imageUploadBox .placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .detailsSection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .formGroup {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formGroup label {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .formGroup input,
+        .formGroup select,
+        .formGroup textarea {
+            padding: 12px 20px;
+            border: 1px solid #444E27;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .formGroup textarea {
+            border-radius: 25px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .formGroup input:focus,
+        .formGroup select:focus,
+        .formGroup textarea:focus {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .checkboxGroup {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .checkboxGroup label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+
+        .checkboxGroup input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .formActions {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .submitBtn, .cancelBtn {
+            padding: 15px 60px;
+            border: 1px solid #444E27;
+            border-radius: 100px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submitBtn {
+            background: #444E27;
+            color: #E0D7C3;
+        }
+
+        .submitBtn:hover {
+            background: #556339;
+            transform: translateY(-2px);
+        }
+
+        .cancelBtn {
+            background: #E0D7C3;
+            color: #444E27;
+        }
+
+        .cancelBtn:hover {
+            background: #d0c0b3;
+            transform: translateY(-2px);
+        }
+
+        .loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loadingOverlay p {
+            color: white;
+            font-size: 24px;
+            background: #444E27;
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .formContainer {
+                padding: 40px;
+            }
+
+            .formContent {
+                grid-template-columns: 1fr;
+            }
+
+            .formTitle {
+                font-size: 36px;
+            }
+        }
+
+        @media only screen and (max-width: 730px) {
+            .formContainer {
+                padding: 20px;
+                border-radius: 25px;
+            }
+
+            .formTitle {
+                font-size: 28px;
+            }
+
+            .formGroup label {
+                font-size: 16px;
+            }
+
+            .submitBtn, .cancelBtn {
+                padding: 12px 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <script defer src="global.js"></script>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="nav">
+        <div class="burgerMenuCon">
+            <div class="burgerMenuBtn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="navLogo">
+            <img src="images/homeImages/Jurassic Bark.webp" alt="">
+        </div>
+        <div class="mainNav">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="aboutUs.html">About Us</a></p>
+            <p><a href="adminAnimals.html">Our Animals</a></p>
+            <p><a href="contact.html">Contact Us</a></p>
+            <p><a href="faqs.html">FAQs</a></p>
+        </div>
+        <div class="navControls">
+            <svg class="searchIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.3333 31.6667C25.6971 31.6667 31.6667 25.6971 31.6667 18.3333C31.6667 10.9695 25.6971 5 18.3333 5C10.9695 5 5 10.9695 5 18.3333C5 25.6971 10.9695 31.6667 18.3333 31.6667Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M35 35L27.75 27.75" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <a href="user-profile.html">
+                <svg class="userIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M33.3337 35V31.6667C33.3337 29.8986 32.6313 28.2029 31.381 26.9526C30.1308 25.7024 28.4351 25 26.667 25H13.3337C11.5655 25 9.86986 25.7024 8.61961 26.9526C7.36937 28.2029 6.66699 29.8986 6.66699 31.6667V35" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.9997 18.3333C23.6816 18.3333 26.6663 15.3486 26.6663 11.6667C26.6663 7.98477 23.6816 5 19.9997 5C16.3178 5 13.333 7.98477 13.333 11.6667C13.333 15.3486 16.3178 18.3333 19.9997 18.3333Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="navMobileSlide">
+        <div class="navItem"><a href="index.html"><p>HOME</p></a></div>
+        <div class="navItem"><a href="aboutUs.html"><p>ABOUT US</p></a></div>
+        <div class="navItem"><a href="adminAnimals.html"><p>OUR ANIMALS</p></a></div>
+        <div class="navItem"><a href="contact.html"><p>CONTACT US</p></a></div>
+        <div class="navItem"><a href="faqs.html"><p>FAQs</p></a></div>
+    </div>
+
+    <!-- UPDATE ANIMAL FORM -->
+    <div class="formContainer">
+        <div class="formBg"></div>
+        <h1 class="formTitle">Update Animal</h1>
+        
+        <form id="updateAnimalForm" class="formContent">
+            <input type="hidden" id="petId" name="petId">
+            <input type="hidden" id="currentImagePath" name="currentImagePath">
+            
+            <div class="imageSection">
+                <div class="imageUploadBox" onclick="document.getElementById('imageInput').click()">
+                    <img class="preview" id="imagePreview">
+                    <div class="placeholder" id="placeholder" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <p>Add Image</p>
+                    </div>
+                </div>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="detailsSection">
+                <div class="formGroup">
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="formGroup">
+                    <label>Breed:</label>
+                    <input type="text" id="breed" name="breed" required>
+                </div>
+
+                <div class="formGroup">
+                    <label>Age:</label>
+                    <input type="number" id="age" name="age" min="0" required>
+                </div>
+
+                <div class="formGroup">
+                    <label>Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="formGroup">
+                    <label>Type:</label>
+                    <select id="type" name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Small Animal">Small Animal</option>
+                    </select>
+                </div>
+
+                <div class="formGroup">
+                    <label>Coat Length:</label>
+                    <select id="coatLength" name="coatLength">
+                        <option value="">Select Coat Length</option>
+                        <option value="Short">Short</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Long">Long</option>
+                    </select>
+                </div>
+
+                <div class="formGroup">
+                    <label>Color:</label>
+                    <input type="text" id="color" name="color">
+                </div>
+
+                <div class="formGroup">
+                    <label>Price (₱):</label>
+                    <input type="number" id="price" name="price" min="0" step="0.01" required>
+                </div>
+
+                <div class="formGroup">
+                    <label>Medical Status:</label>
+                    <div class="checkboxGroup">
+                        <label>
+                            <input type="checkbox" id="vaccinated" name="vaccinated">
+                            Vaccinated
+                        </label>
+                        <label>
+                            <input type="checkbox" id="spayedNeutered" name="spayedNeutered">
+                            Spayed/Neutered
+                        </label>
+                    </div>
+                </div>
+
+                <div class="formGroup">
+                    <label>Description:</label>
+                    <textarea id="personality" name="personality" placeholder="Tell us about this pet's personality..."></textarea>
+                </div>
+            </div>
+
+            <div class="formActions">
+                <button type="submit" class="submitBtn">Update</button>
+                <button type="button" class="cancelBtn" onclick="window.location.href='adminAnimals.html'">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="HomeFooter">
+        <div class="footerBg"></div>
+        <div class="foot1">
+            <div class="footerLogoIcons">
+                <img class="footLogo" src="images/homeImages/Jurassic Bark.svg" alt="">
+                <div class="smallIconsCon">
+                    <img class="smallIcons" src="images/homeImages/facebook.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/instagram.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt="">
+                </div>
+            </div>
+            <div class="foot1Text">
+                © 2025 Jurassic Bark. All Rights Reserved.<br>
+                Registered Nonstock, Nonprofit Organization – SEC Registration No. CN2025-XXXXXX<br>   
+                Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+            </div>
+        </div>
+        <div class="bottomFoot1Text">
+            © 2025 Jurassic Bark. All Rights Reserved.<br>
+            Registered Nonstock, Nonprofit Organization – SEC Registration No. CN2025-XXXXXX<br>   
+            Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+        </div>
+        <div class="foot2">Home<br>About Us<br>Our Animals<br>Contact Us<br>FAQs</div>
+        <div class="foot3">Privacy Policy<br>Terms of Service<br>Adoption Policy<br>Licensing or nonprofit<br>registration info</div>
+        <div class="foot4">
+            Tarlac State University - San Isidro Campus,<br>
+            Brgy. San Isidro, Tarlac City, 2300 Tarlac<br>
+            +63 912 345 6789<br>
+            jurassicbark@gmail.com<br>
+            MON to SAT, 10 AM - 6 PM<br>
+            No Noon Time Break
+        </div>
+    </div>
+
+    <script>
+        let imageChanged = false;
+
+        // Load pet data on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const petId = urlParams.get('petId');
+
+            if (!petId) {
+                alert('No pet ID provided');
+                window.location.href = 'adminAnimals.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`get-pet.php?petId=${petId}`);
+                const result = await response.json();
+
+                if (result.success && result.pet) {
+                    populateForm(result.pet);
+                } else {
+                    alert('Failed to load pet data');
+                    window.location.href = 'adminAnimals.html';
+                }
+            } catch (error) {
+                alert('Error loading pet: ' + error.message);
+                window.location.href = 'adminAnimals.html';
+            }
+        });
+
+        function populateForm(pet) {
+            document.getElementById('petId').value = pet.petID;
+            document.getElementById('name').value = pet.name;
+            document.getElementById('breed').value = pet.breed;
+            document.getElementById('age').value = pet.age;
+            document.getElementById('type').value = pet.type;
+            document.getElementById('price').value = pet.price;
+            document.getElementById('currentImagePath').value = pet.imageDirectory;
+
+            // Show current image
+            if (pet.imageDirectory) {
+                document.getElementById('imagePreview').src = pet.imageDirectory;
+                document.getElementById('imagePreview').style.display = 'block';
+            }
+
+            // Parse and populate details
+            let details = {};
+            try {
+                details = JSON.parse(pet.details);
+            } catch (e) {
+                console.error('Failed to parse details');
+            }
+
+            if (details.gender) document.getElementById('gender').value = details.gender;
+            if (details.coat_length) document.getElementById('coatLength').value = details.coat_length;
+            if (details.color) document.getElementById('color').value = details.color;
+            if (details.vaccinated !== undefined) document.getElementById('vaccinated').checked = details.vaccinated;
+            if (details.spayed_neutered !== undefined) document.getElementById('spayedNeutered').checked = details.spayed_neutered;
+            if (details.personality) document.getElementById('personality').value = details.personality;
+        }
+
+        // Image preview
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                imageChanged = true;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('placeholder').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('updateAnimalForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            
+            formData.append('petId', document.getElementById('petId').value);
+            formData.append('name', document.getElementById('name').value);
+            formData.append('breed', document.getElementById('breed').value);
+            formData.append('age', document.getElementById('age').value);
+            formData.append('type', document.getElementById('type').value);
+            formData.append('price', document.getElementById('price').value);
+
+            // Only append image if it was changed
+            if (imageChanged) {
+                const imageFile = document.getElementById('imageInput').files[0];
+                if (imageFile) {
+                    formData.append('image', imageFile);
+                }
+            } else {
+                formData.append('currentImagePath', document.getElementById('currentImagePath').value);
+            }
+
+            // Details object
+            const details = {
+                gender: document.getElementById('gender').value,
+                coat_length: document.getElementById('coatLength').value || null,
+                color: document.getElementById('color').value || null,
+                vaccinated: document.getElementById('vaccinated').checked,
+                spayed_neutered: document.getElementById('spayedNeutered').checked,
+                personality: document.getElementById('personality').value || null
+            };
+            formData.append('details', JSON.stringify(details));
+
+            try {
+                const response = await fetch('update-pet.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Pet updated successfully!');
+                    window.location.href = 'adminAnimals.html';
+                } else {
+                    alert('Failed to update pet: ' + (result.message || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Error updating pet: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

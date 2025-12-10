@@ -63,6 +63,8 @@ $conn->close();
         <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Slackey&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="globalFooterNav.css">
         <script defer src="global.js" ></script>
+        <script defer src="adminNavRedirect.js"></script>
+
     <style>
       /*Global Styles*/
       * {
@@ -637,7 +639,7 @@ $conn->close();
             if (storedUser) {
                 const userData = JSON.parse(storedUser);
                 // Redirect to home if already logged in
-                window.location.href = 'index.php';
+                window.location.href = 'index.html';
             }
         });
     </script>
@@ -656,7 +658,7 @@ $conn->close();
         localStorage.setItem('jurassicBark_user', JSON.stringify(userData));
         
         // Redirect after storing
-        window.location.href = 'index.php';
+        window.location.href = 'index.html';
     </script>
     <?php 
         unset($_SESSION['login_success']); // Clear the flag

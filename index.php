@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <script defer src="index.js" ></script>
+    <script defer src="adminNavRedirect.js"></script>
 
     <!-- FONTS -->
     <style>

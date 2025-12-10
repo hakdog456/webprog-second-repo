@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurassic Bark | Manage Animals</title>
+    <link rel="stylesheet" href="ourAnimals.css">
+    <link rel="stylesheet" href="global-application-styles.css">
+    <link rel="stylesheet" href="globalFooterNav.css">
+    <style>
+        .adminPetCard {
+            position: relative;
+        }
+        
+        .adminButtons {
+            margin-top: 5%;
+            width: 83%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .editBtn, .deleteBtn {
+            height: 61px;
+            flex: 1;
+            border: 1px solid #444E27;
+            background: #E0D7C3;
+            border-radius: 100px;
+            mix-blend-mode: multiply;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .editBtn:hover {
+            background: #d0c0b3;
+            transform: translateY(-2px);
+        }
+        
+        .deleteBtn {
+            background: #d9a6a0;
+        }
+        
+        .deleteBtn:hover {
+            background: #c99690;
+            transform: translateY(-2px);
+        }
+        
+        .addPetBtn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background: #444E27;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .addPetBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        
+        .addPetBtn::before,
+        .addPetBtn::after {
+            content: '';
+            position: absolute;
+            background: #E0D7C3;
+        }
+        
+        .addPetBtn::before {
+            width: 4px;
+            height: 35px;
+        }
+        
+        .addPetBtn::after {
+            width: 35px;
+            height: 4px;
+        }
+        
+        .closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(68, 78, 39, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: #444E27;
+            transition: all 0.3s ease;
+        }
+        
+        .closeBtn:hover {
+            background: rgba(68, 78, 39, 0.4);
+            transform: rotate(90deg);
+        }
+        
+        @media only screen and (max-width: 1000px) {
+            .editBtn, .deleteBtn {
+                height: 54px;
+                font-size: 20px;
+            }
+            
+            .addPetBtn {
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+            }
+        }
+        
+        @media only screen and (max-width: 730px) {
+            .editBtn, .deleteBtn {
+                height: 29px;
+                font-size: 12px;
+            }
+            
+            .addPetBtn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .addPetBtn::before {
+                height: 25px;
+                width: 3px;
+            }
+            
+            .addPetBtn::after {
+                width: 25px;
+                height: 3px;
+            }
+        }
+    </style>
+    <script defer src="global.js"></script>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="nav">
+        <div class="burgerMenuCon">
+            <div class="burgerMenuBtn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="navLogo">
+            <img src="images/homeImages/Jurassic Bark.webp" alt="">
+        </div>
+        <div class="mainNav">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="aboutUs.html">About Us</a></p>
+            <p><a href="adminAnimals.html">Our Animals</a></p>
+            <p><a href="contact.html">Contact Us</a></p>
+            <p><a href="faqs.html">FAQs</a></p>
+        </div>
+        <div class="navControls">
+            <svg class="searchIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.3333 31.6667C25.6971 31.6667 31.6667 25.6971 31.6667 18.3333C31.6667 10.9695 25.6971 5 18.3333 5C10.9695 5 5 10.9695 5 18.3333C5 25.6971 10.9695 31.6667 18.3333 31.6667Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M35 35L27.75 27.75" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <a href="user-profile.html">
+                <svg class="userIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M33.3337 35V31.6667C33.3337 29.8986 32.6313 28.2029 31.381 26.9526C30.1308 25.7024 28.4351 25 26.667 25H13.3337C11.5655 25 9.86986 25.7024 8.61961 26.9526C7.36937 28.2029 6.66699 29.8986 6.66699 31.6667V35" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.9997 18.3333C23.6816 18.3333 26.6663 15.3486 26.6663 11.6667C26.6663 7.98477 23.6816 5 19.9997 5C16.3178 5 13.333 7.98477 13.333 11.6667C13.333 15.3486 16.3178 18.3333 19.9997 18.3333Z" stroke="#223125" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="navMobileSlide">
+        <div class="navItem"><a href="index.html"><p>HOME</p></a></div>
+        <div class="navItem"><a href="aboutUs.html"><p>ABOUT US</p></a></div>
+        <div class="navItem"><a href="adminAnimals.html"><p>OUR ANIMALS</p></a></div>
+        <div class="navItem"><a href="contact.html"><p>CONTACT US</p></a></div>
+        <div class="navItem"><a href="faqs.html"><p>FAQs</p></a></div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="searchBarSection">
+        <div class="searchBar">
+            <img src="images/ourAnimalsImages/search.svg" alt="">
+        </div>
+        <div class="filterIconCon">
+            <img src="images/ourAnimalsImages/Vector.svg" alt="">
+        </div>
+    </div>
+
+    <!-- PETS LIST -->
+    <div class="petsList" id="petsList"></div>
+
+    <!-- ADD PET BUTTON -->
+    <div class="addPetBtn" onclick="window.location.href='addAnimal.html'"></div>
+
+    <!-- FOOTER -->
+    <div class="HomeFooter">
+        <div class="footerBg"></div>
+        <div class="foot1">
+            <div class="footerLogoIcons">
+                <img class="footLogo" src="images/homeImages/Jurassic Bark.svg" alt="">
+                <div class="smallIconsCon">
+                    <img class="smallIcons" src="images/homeImages/facebook.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/instagram.svg" alt="">
+                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt="">
+                </div>
+            </div>
+            <div class="foot1Text">
+                © 2025 Jurassic Bark. All Rights Reserved.<br>
+                Registered Nonstock, Nonprofit Organization – SEC Registration No. CN2025-XXXXXX<br>   
+                Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+            </div>
+        </div>
+        <div class="bottomFoot1Text">
+            © 2025 Jurassic Bark. All Rights Reserved.<br>
+            Registered Nonstock, Nonprofit Organization – SEC Registration No. CN2025-XXXXXX<br>   
+            Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
+        </div>
+        <div class="foot2">Home<br>About Us<br>Our Animals<br>Contact Us<br>FAQs</div>
+        <div class="foot3">Privacy Policy<br>Terms of Service<br>Adoption Policy<br>Licensing or nonprofit<br>registration info</div>
+        <div class="foot4">
+            Tarlac State University - San Isidro Campus,<br>
+            Brgy. San Isidro, Tarlac City, 2300 Tarlac<br>
+            +63 912 345 6789<br>
+            jurassicbark@gmail.com<br>
+            MON to SAT, 10 AM - 6 PM<br>
+            No Noon Time Break
+        </div>
+    </div>
+
+    <script>
+        let allPets = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const petsList = document.getElementById('petsList');
+            const searchBar = document.querySelector('.searchBar');
+            let searchInput = searchBar.querySelector('input');
+            
+            if (!searchInput) {
+                searchInput = document.createElement('input');
+                searchInput.type = 'text';
+                searchInput.placeholder = 'Search pets...';
+                searchInput.style = 'border:none;outline:none;background:transparent;width:90%;font-size:1.1em;padding:0.5em;';
+                searchBar.appendChild(searchInput);
+            }
+
+            // Fetch all pets (including adopted ones for admin)
+            fetch('get-all-pets-admin.php')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        allPets = data.pets;
+                        renderPets(allPets);
+                    } else {
+                        petsList.innerHTML = '<p>Failed to load pets.</p>';
+                    }
+                })
+                .catch(() => {
+                    petsList.innerHTML = '<p>Failed to load pets.</p>';
+                });
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim().toLowerCase();
+                if (!query) {
+                    renderPets(allPets);
+                    return;
+                }
+                const filtered = allPets.filter(pet => {
+                    let details = {};
+                    if (pet.details) {
+                        try { details = JSON.parse(pet.details); } catch {}
+                    }
+                    const gender = details.gender || '';
+                    const text = [pet.name, pet.type, pet.breed, gender, pet.age, pet.price]
+                        .map(x => String(x).toLowerCase()).join(' ');
+                    return text.includes(query);
+                });
+                renderPets(filtered);
+            });
+        });
+
+        function renderPets(pets) {
+            const petsList = document.getElementById('petsList');
+            petsList.innerHTML = '';
+            
+            pets.forEach(pet => {
+                let details = {};
+                if (pet.details) {
+                    try { details = JSON.parse(pet.details); } catch {}
+                }
+                const gender = details.gender || 'Unknown';
+                const ageText = pet.age > 1 ? `${pet.age} yrs. old` : `${pet.age} yr. old`;
+                
+                const petCard = document.createElement('div');
+                petCard.className = 'petCard adminPetCard';
+                petCard.innerHTML = `
+                    <div class="petCardBg"></div>
+                    <div class="closeBtn" onclick="deletePet(${pet.petID})">×</div>
+                    <div class="petPicCon">
+                        <img src="${pet.imageDirectory}" alt="${pet.name}" onerror="this.src='images/homeImages/petPics/default-pet.jpg'">
+                    </div>
+                    <div class="petDetails">
+                        <p class="petName">${pet.name}</p>
+                        <p class="petGender">${gender}</p>
+                        <p class="petType">${pet.breed}, ${ageText}</p>
+                    </div>
+                    <div class="adminButtons">
+                        <div class="editBtn" onclick="editPet(${pet.petID})">
+                            <p>Update</p>
+                        </div>
+                    </div>
+                `;
+                
+                petsList.appendChild(petCard);
+            });
+        }
+
+        function editPet(petId) {
+            window.location.href = `updateAnimal.html?petId=${petId}`;
+        }
+
+        function deletePet(petId) {
+            if (!confirm('Are you sure you want to delete this pet? This action cannot be undone.')) {
+                return;
+            }
+
+            fetch('delete-pet.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ petId: petId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Pet deleted successfully!');
+                    location.reload();
+                } else {
+                    alert('Failed to delete pet: ' + (data.message || 'Unknown error'));
+                }
+            })
+            .catch(err => {
+                alert('Error deleting pet: ' + err.message);
+            });
+        }
+    </script>
+</body>
+</html>
