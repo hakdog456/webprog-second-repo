@@ -580,6 +580,18 @@
               font-size: 0.8rem;
             }
           }
+          @media only screen and (max-width: 1188px) and (min-width: 930px){
+            body{
+              min-height: 100vh;
+            }
+            .HomeFooter{
+              margin-top: 40px;
+            }
+            .footerBg{
+              height: auto;
+              min-height: 240px;
+            }
+          }
         </style>
     </head>
     <body>
