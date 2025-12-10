@@ -8,9 +8,9 @@
 ---
 
 # 🛠 List of Fixes
-- when not logged in, when user profile is clicked it should go to login (it goes to user dashboard kase eh even if no ones logged in, it shows "username")
-- in user, after submitting application, i suggest for the view to revert to dashboard (it still goes back to user application kase eh)
-- from the user, when meet and greet is clicked, it should go to meet and greet (it still goes back to user application kase eh)
+- when not logged in, when user profile is clicked it should go to login (it goes to user dashboard kase eh even if no ones logged in, it shows "username") - FIXED!
+- in user, after submitting application, i suggest for the view to revert to dashboard (it still goes back to user application kase eh) - FIXED!
+- from the user, when meet and greet is clicked, it should go to meet and greet (it still goes back to user application kase eh) - FIXED!
 - contact.html: nothing happens when send message is clicked : tiny gap below footer on 768px - 1024px -- minnardfix
 - faqs.html: big gap below footer after 768px, disappears when you expand one of the details, footer background disappearing when <600px - 768px -- minnardfix
 
@@ -45,7 +45,7 @@ ourAnimals.html
 - go back to this after doing all the stuff below (at the end it will add so many placeholder animals)
 -- https://youtu.be/0U6URtLGYkM?t=669 
 
-from petdetails.html to user-application-page.html 
+from petdetails.html to user-application-page.html - DUSTIN (ATTEMPT TO FIX)
 - https://youtu.be/0U6URtLGYkM?t=204
 - https://youtu.be/0U6URtLGYkM?t=227
 - if I try to click "Know More" on an animal and click Apply Now BEFORE signing in, it will make me go to this page with the content bugging out 
