@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homepage - Pet Adoption</title>
     <link rel="stylesheet" href="index.css">
     <script defer src="index.js" ></script>
     <script defer src="adminNavRedirect.js"></script>
