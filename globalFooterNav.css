@@ -49,7 +49,7 @@ a{
 
 
 .nav{
-    top: 0;
+  top: 0;
   position: absolute;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
