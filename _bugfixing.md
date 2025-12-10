@@ -24,6 +24,7 @@
 
 ---
 
+WORKING ON ALL TINY GAP BELOW FOOTERS - MENNARD
 login.php & sign-up.php 
 - tiny gap below footer on 1024px 
 - https://youtu.be/0U6URtLGYkM?t=54
