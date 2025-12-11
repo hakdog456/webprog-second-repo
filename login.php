@@ -595,13 +595,14 @@ $conn->close();
                 </svg>
             </div>
             <div class="form-options">
-                <div class="remember-me">
+                <!-- <div class="remember-me">
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Remember Me</label>
                 </div>
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
+                 -->
             </div>
             <div class="login-button">
                 <input type="submit" value="Login">
