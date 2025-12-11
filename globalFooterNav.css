@@ -12,6 +12,10 @@ body{
     padding-top: 100px;
 }
 
+.searchIcon {
+  display: none;
+}
+
 a{
   text-decoration: none;
   color: inherit;

@@ -102,10 +102,6 @@ if (isset($_GET['json'])) {
         <div class="searchBar">
             <img src="images\ourAnimalsImages\search.svg" alt="">
         </div>
-
-        <div class="filterIconCon">
-            <img src="images\ourAnimalsImages\Vector.svg" alt="">
-        </div>
     </div>
 
     <div class="petsList" id="petsList"></div>

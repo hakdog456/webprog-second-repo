@@ -179,7 +179,9 @@ $ageText = $pet ? ($pet['age'] > 1 ? $pet['age'] . ' years old' : $pet['age'] . 
                     <div class="adoptionBg"></div>
                     <p class="adoptionText">Considering <?php echo htmlspecialchars($pet['name']); ?> for adoption?</p>
                     <a href="user-application-page.html?petId=<?php echo $pet['petID']; ?>" class="adoptionBtn">Apply Now</a>
-                    <div class="adoptionBtn">Read FAQs</div>
+                    <a href="faqs.html">
+                        <div class="adoptionBtn">Read FAQs</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -189,7 +191,9 @@ $ageText = $pet ? ($pet['age'] > 1 ? $pet['age'] . ' years old' : $pet['age'] . 
             <div class="bottomAdoptionBg adoptionBg"></div>
             <p class="bottomAdoptionText adoptionText">Considering <?php echo htmlspecialchars($pet['name']); ?> for adoption?</p>
             <a href="user-application-page.html?petId=<?php echo $pet['petID']; ?>" class="bottomAdoptionBtn adoptionBtn">Apply Now</a>
-            <div class="bottomAdoptionBtn adoptionBtn">Read FAQs</div>
+            <a href="faqs.html">
+                <div class="bottomAdoptionBtn adoptionBtn">Read FAQs</div>
+            </a>
         </div>
             
     </div>

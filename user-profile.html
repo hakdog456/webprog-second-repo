@@ -480,6 +480,10 @@
     cursor: pointer;
     z-index: 9999;
   }
+  
+  .floating-admin-btn{
+    display: none;
+  }
 
   /* TO DO: KILL YOURSELF */
 
@@ -780,7 +784,7 @@
   /* Ensure admin button remains visible on tablet/mobile: force display and high z-index
      and respect device safe-area insets so it won't be pushed off-screen on iOS. */
   .floating-admin-btn {
-    display: inline-flex !important;
+    display: none !important;
     z-index: 100000 !important;
     bottom: calc(env(safe-area-inset-bottom, 20px) + 8px) !important;
     right: calc(env(safe-area-inset-right, 20px) + 12px) !important;
@@ -975,9 +979,6 @@ document.addEventListener('DOMContentLoaded', function() {
            and not blend the card DOM (cards are siblings below). -->
       <div class="pet-grid-wrapper" aria-hidden="true">
         <div class="pet-overlay-grid" aria-hidden="true">
-          <div class="pet-overlay-cell"></div>
-          <div class="pet-overlay-cell"></div>
-          <div class="pet-overlay-cell"></div>
         </div>
       </div>
 
