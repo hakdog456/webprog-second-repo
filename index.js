@@ -166,7 +166,7 @@ meetPetsBtn.addEventListener("click", () =>{
 } )
 
 // Contact form: alert confirmation then clear inputs/textarea
-const sendMsgBtn = document.querySelector(".sendMsgBtn")
+// const sendMsgBtn = document.querySelector(".sendMsgBtn")
 const contactFields = document.querySelectorAll(".contactUsForm .input input, .contactUsForm .input textarea")
 
 if (sendMsgBtn) {

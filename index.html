@@ -205,39 +205,71 @@
     </div>
 
     <!-- CONTACT US -->
+
+    <!-- CONTACT US -->
     <div class="contactUs">
-        <div class="contactUsImageHolder" >
+        <div class="contactUsImageHolder">
             <!-- Cat Contact US Picture -->
             <img class="contactUsCat" src="images/homeImages/cat.webp" alt="">
         </div>       
 
-        <div class="contactUsContent" >
-            <div class="contactUsForm">
+        <div class="contactUsContent">
+            <form class="contactUsForm" onsubmit="return handleContactSubmit(this);">
                 <div class="bg"></div>
-                <p class="contactHead" >CONTACT US!</p>
+                <p class="contactHead">CONTACT US!</p>
+                
                 <div class="input">
                     <p>NAME: </p>
-                    <input type="text">
+                    <input type="text" name="name" required>
                 </div>
+                
                 <div class="input">
                     <p>EMAIL: </p>
-                    <input type="text">
+                    <input type="email" name="email" required>
                 </div>
+                
                 <div class="input">
                     <p>SUBJECT: </p>
-                    <input type="text">
+                    <input type="text" name="subject" required>
                 </div>
+                
                 <div id="msgInput" class="input">
                     <p>MESSAGE: </p>
-                    <textarea id="msgTxtArea" name="" id=""></textarea>
+                    <textarea id="msgTxtArea" name="message" required></textarea>
                 </div>
-                <div class="contactUsfooter" >
-                    <p class="sideText" >or call 0912-345-6789</p>
-                    <button class="sendMsgBtn" >Send Message</button>
+                
+                <div class="contactUsfooter">
+                    <p class="sideText">or call 0912-345-6789</p>
+                    <button type="submit" class="sendMsgBtn">Send Message</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+
+    
+    <script>
+    function handleContactSubmit(form) {
+        // Get form values
+        const name = encodeURIComponent(form.name.value);
+        const email = encodeURIComponent(form.email.value);
+        const subject = encodeURIComponent(form.subject.value);
+        const message = encodeURIComponent(form.message.value);
+
+        // Create mailto link
+        const mailtoLink = `mailto:jurassicbark@gmail.com?subject=${subject}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+
+        // Show alerts
+        alert("Your email client will open. Please send the email from there.");
+        alert("If you do not have a default mail client, please contact us at jurassicbark@gmail.com or call 0912-345-6789.");
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Prevent form from actually submitting
+        return false;
+    }
+    </script>
+
 
 
     <!-- GRASS FOOTER -->
@@ -251,9 +283,16 @@
             <div class="footerLogoIcons" >
                 <img class="footLogo" src="images/homeImages/Jurassic Bark.svg" alt="">
                 <div class="smallIconsCon">
+                    <a href="https://www.facebook.com">
                     <img class="smallIcons" src="images/homeImages/facebook.svg" alt="">
+                    </a>
+                    <a href="https://www.instagram.com">
                     <img class="smallIcons" src="images/homeImages/instagram.svg" alt="">
-                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt="">            </div>
+                    </a>
+                    <a href="https://www.tiktok.com">
+                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt=""> 
+                    </a>
+                </div>
                 </div>
             <div class="foot1Text" >
                 © 2025 Jurassic Bark. All Rights Reserved.
@@ -274,15 +313,15 @@
             Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
         </div>
             
-        <div class="foot2" >
-            Home
-            <br>
-            About Us
-            <br>
+        <div class="foot2" style="display: flex; padding-top: 0; flex-direction: column;">
+            <a href="index.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="ourAnimals.html">
             Our Animals
-            <br>
+            </a>
+            <a href="contact.html">
             Contact Us
-            <br>
+            </a>
             FAQs
         </div>
         <div class="foot3" >

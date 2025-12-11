@@ -253,9 +253,16 @@
             <div class="footerLogoIcons" >
                 <img class="footLogo" src="images/homeImages/Jurassic Bark.svg" alt="">
                 <div class="smallIconsCon">
+                    <a href="https://www.facebook.com">
                     <img class="smallIcons" src="images/homeImages/facebook.svg" alt="">
+                    </a>
+                    <a href="https://www.instagram.com">
                     <img class="smallIcons" src="images/homeImages/instagram.svg" alt="">
-                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt="">            </div>
+                    </a>
+                    <a href="https://www.tiktok.com">
+                    <img class="smallIcons" src="images/homeImages/tiktok.svg" alt=""> 
+                    </a>
+                </div>
                 </div>
             <div class="foot1Text" >
                 © 2025 Jurassic Bark. All Rights Reserved.
@@ -276,15 +283,15 @@
             Accredited under the Animal Welfare Act of 1998 (Republic Act No. 8485, as amended by RA 10631).
         </div>
             
-        <div class="foot2" >
-            Home
-            <br>
-            About Us
-            <br>
+        <div class="foot2" style="display: flex; padding-top: 0; flex-direction: column;">
+            <a href="index.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="ourAnimals.html">
             Our Animals
-            <br>
+            </a>
+            <a href="contact.html">
             Contact Us
-            <br>
+            </a>
             FAQs
         </div>
         <div class="foot3" >
